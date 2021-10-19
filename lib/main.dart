@@ -5,6 +5,7 @@ import 'package:mosque_timings/src/config/routes/app_pages.dart';
 import 'package:mosque_timings/src/config/routes/routes.dart';
 import 'package:mosque_timings/src/services/firebase/firebase_notifiy_config.dart';
 import 'package:flutter/foundation.dart';
+import 'package:mosque_timings/src/services/localization/localization.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,6 +22,9 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      locale: LocalizationService.locale,
+      fallbackLocale: LocalizationService.fallbackLocale,
+      translations: LocalizationService(),
       debugShowCheckedModeBanner: false,
       getPages: AppPages.routes,
       initialRoute: Routes.home,

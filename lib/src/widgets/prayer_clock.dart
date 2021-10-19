@@ -15,13 +15,13 @@ class PrayerClock extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-       Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text(
-              prayer?.name ?? '',
-              style: Theme.of(context).textTheme.headline5,
-            ),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text(
+            prayer?.name!.tr ?? '',
+            style: Theme.of(context).textTheme.headline5,
           ),
+        ),
         Row(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -33,11 +33,11 @@ class PrayerClock extends StatelessWidget {
                 icon: const Icon(Icons.access_time)),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Text(DateFormat.jm().format(prayer?.time ?? DateTime.now()),
+              child: Text(
+                  DateFormat.jm().format(prayer?.time ?? DateTime.now()).tr,
                   style: Theme.of(context).textTheme.headline5),
             ),
           ],
-
         )
       ],
     );
