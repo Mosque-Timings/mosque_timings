@@ -1,10 +1,10 @@
-import 'package:flutter/material.dart';
+
 import 'package:intl/intl.dart';
 
 class MosqueTimings {
-  final String? location, name;
-  final DateTime? updated;
-  final TimeOfDay? fajr, duhr, asr, maghrib, isha, friday;
+  String? location, name;
+  DateTime? updated;
+  DateTime? fajr, duhr, asr, maghrib, isha, friday;
 
   MosqueTimings(
       {this.location,
@@ -29,23 +29,24 @@ class MosqueTimings {
   }
 
   factory MosqueTimings.fromJson(json) {
+
     return MosqueTimings(
       location: json['location'],
       name: json['name'],
       updated: DateTime.parse(json['updated']),
-      fajr: TimeOfDay.fromDateTime(DateFormat("hh:mm:ss").parse(json['fajr'])),
-      duhr: TimeOfDay.fromDateTime(DateFormat("hh:mm:ss").parse(json['duhr'])),
-      asr: TimeOfDay.fromDateTime(DateFormat("hh:mm:ss").parse(json['asr'])),
-      maghrib: TimeOfDay.fromDateTime(DateFormat("hh:mm:ss").parse(json['maghrib'])),
-      isha: TimeOfDay.fromDateTime(DateFormat("hh:mm:ss").parse(json['isha'])),
-      friday: TimeOfDay.fromDateTime(DateFormat("hh:mm:ss").parse(json['friday'])),
+      fajr: DateFormat("hh:mm:ss").parse(json['fajr']),
+      duhr: DateFormat("hh:mm:ss").parse(json['duhr']),
+      asr: DateFormat("hh:mm:ss").parse(json['asr']),
+      maghrib: DateFormat("hh:mm:ss").parse(json['maghrib']),
+      isha: DateFormat("hh:mm:ss").parse(json['isha']),
+      friday: DateFormat("hh:mm:ss").parse(json['friday']),
     );
   }
 }
 
 class Prayer {
   String? name;
-  TimeOfDay? time;
+  DateTime? time;
 
   Prayer({this.name, this.time});
 }
