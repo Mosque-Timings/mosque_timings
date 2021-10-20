@@ -13,7 +13,7 @@ class CustomSearchBar extends StatelessWidget {
   final TextAlignVertical? textAlignVertical;
   final bool? hasIcon;
   final Size? size;
-  const CustomSearchBar({
+  CustomSearchBar({
     Key? key,
     this.initialValue,
     this.controller,
@@ -28,41 +28,48 @@ class CustomSearchBar extends StatelessWidget {
     this.size = const Size(350, 50),
   }) : super(key: key);
 
+  final ValueNotifier<TextDirection> _textDir =
+      ValueNotifier(TextDirection.ltr);
+
   @override
   Widget build(BuildContext context) {
     return Padding(
         padding: const EdgeInsets.all(8.0),
         child: SizedBox(
             width: size!.width,
-            child: TextFormField(
-              controller: controller,
-              onChanged: (val) => onChanged!(val),
-              validator: (val) => validator!(val!),
-              initialValue: initialValue,
-              inputFormatters: inputFormatters,
-              onSaved: (val) => onSaved!(val!),
-              onFieldSubmitted: (val) => onSubmit!(val),
-              textAlignVertical: textAlignVertical,
-              decoration: InputDecoration(
-                prefixIcon: hasIcon!
-                    ? const Icon(
-                        Icons.filter_alt,
-                        size: 24,
-                        color: Colors.black54,
-                      )
-                    : const SizedBox.shrink(),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(50),
-                  borderSide: const BorderSide(
-                    width: 0,
-                    style: BorderStyle.none,
-                  ),
-                ),
-                filled: true,
-                hintStyle: TextStyle(color: Colors.grey[800]),
-                hintText: hint,
-                fillColor: Colors.blueGrey.shade50,
-              ),
-            )));
+            child: ValueListenableBuilder<TextDirection>(
+                valueListenable: _textDir,
+                builder: (context, value, child) => TextFormField(
+
+                      controller: controller,
+                      onChanged: (val) => onChanged!(val),
+                      validator: (val) => validator!(val!),
+                      initialValue: initialValue,
+                      inputFormatters: inputFormatters,
+                      onSaved: (val) => onSaved!(val!),
+                      onFieldSubmitted: (val) => onSubmit!(val),
+                      textAlignVertical: textAlignVertical,
+                      decoration: InputDecoration(
+                        prefixIcon: hasIcon!
+                            ? const Icon(
+                                Icons.filter_alt,
+                                size: 24,
+                                color: Colors.black54,
+                              )
+                            : const SizedBox.shrink(),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(50),
+                          borderSide: const BorderSide(
+                            width: 0,
+                            style: BorderStyle.none,
+                          ),
+                        ),
+                        filled: true,
+                        hintStyle: TextStyle(color: Colors.grey[800]),
+                        hintText: hint,
+                        fillColor: Colors.blueGrey.shade50,
+                      ),
+                    ))));
   }
+
 }

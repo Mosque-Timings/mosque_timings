@@ -34,7 +34,7 @@ class PrayerClock extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
-                  DateFormat.jm().format(prayer?.time ?? DateTime.now()).tr,
+                  DateFormat("hh:mm a").format(prayer?.time ?? DateTime.now()).tr,
                   style: Theme.of(context).textTheme.headline5),
             ),
           ],

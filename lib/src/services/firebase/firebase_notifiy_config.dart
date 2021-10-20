@@ -1,11 +1,9 @@
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-
 class FirebaseNotifyConfig {
-
-
   AndroidNotificationChannel channel = const AndroidNotificationChannel(
     'high_importance_channel', // id
     'High Importance Notifications', // title
@@ -15,7 +13,7 @@ class FirebaseNotifyConfig {
   final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
       FlutterLocalNotificationsPlugin();
   var initializationSettingsAndroid =
-     const AndroidInitializationSettings('notify_icon');
+      const AndroidInitializationSettings('notify_icon');
   var initializationSettingsIOS = const IOSInitializationSettings();
 
   Future<void> subscribeTo(String topic) async {
@@ -24,7 +22,6 @@ class FirebaseNotifyConfig {
   }
 
   Future<void> initialize() async {
-
     if (await configDone()) {
       await listenToNotify();
     } else {

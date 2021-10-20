@@ -28,10 +28,9 @@ class LocalizationService extends Translations {
   // Translations are separated maps in `lang` file
   @override
   Map<String, Map<String, String>> get keys => {
-    'ur_PK': urPK,
-    'en_US': enUS,
-
-  };
+        'ur_PK': urPK,
+        'en_US': enUS,
+      };
 
   // Gets locale from language, and updates the locale
   void changeLocale(String lang) {
