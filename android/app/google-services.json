@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "328467346308",
+    "project_id": "mosquetimings",
+    "storage_bucket": "mosquetimings.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:328467346308:android:f3a1f4a7003d904dc723d1",
+        "android_client_info": {
+          "package_name": "com.mosquetimings.mosque_timings"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "328467346308-8844m51tpp6h4cv8ji5ahuaq31b8n4i8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCn8Jgg42fN1bk_ngp7Hj9i1aNZbjAxIDE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "328467346308-8844m51tpp6h4cv8ji5ahuaq31b8n4i8.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "328467346308-uo01nrvojujt2h089jtra2ak3pmu12ko.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mosquetimings.mosqueTimings"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
